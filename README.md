@@ -18,3 +18,4 @@ python train.py bert True False False
 ```python
 python evaluation.py bert True False False 0
 ```
+&emsp;This code is the code that evaluates the trained H+T model.

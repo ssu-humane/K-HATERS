@@ -2,7 +2,7 @@
 
 This repository provides the code and dataset for our EMNLP'23 findings paper.
 
-<!--The link and instruction for its usage will be available very soon.--!>
+<!--The link and instruction for its usage will be available very soon.-->
 <br>
 
 Download the data [here](https://huggingface.co/datasets/humane-lab/K-HATERS/tree/main/transformed) and place it in each directory as follows.<br>

@@ -8,6 +8,7 @@ Download data [here](https://huggingface.co/datasets/humane-lab/K-HATERS/tree/ma
 - Total_data_4 -> Data
 - train_data.pickle, val_data.pickle, test_data.pickle -> Data/Total_data_4
 <br>
+
 ### For training, run this code.
 ```python
 python train.py bert True False False

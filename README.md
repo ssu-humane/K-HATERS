@@ -13,7 +13,7 @@ Download the data [here](https://huggingface.co/datasets/humane-lab/K-HATERS/tre
 ```python
 python train.py bert True False False
 ```
-&emsp; This code is the code that trains the H+T model introduced in the paper.
+&emsp;This code is the code that trains the H+T model introduced in the paper.
 ### For evaluation, run this code.
 ```python
 python evaluation.py bert True False False 0

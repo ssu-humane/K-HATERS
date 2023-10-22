@@ -4,6 +4,8 @@ from transformers import AutoModel, AutoConfig, XLMRobertaModel,AutoModelForMask
 from sklearn.preprocessing import MultiLabelBinarizer
 import pickle
 import json
+from .utils import *
+
 with open('best_model_json/bestModel_bert_base_uncased_Attn_train_FALSE.json', mode='r') as f:
     params = json.load(f)
 

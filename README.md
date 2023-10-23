@@ -6,14 +6,14 @@ Download the data [here](https://huggingface.co/datasets/humane-lab/K-HATERS/tre
 - *Total_data_4.pickle* -> Data
 - *train_data.pickle*, *val_data.pickle*, *test_data.pickle* -> Data/Total_data_4<br>
 
-### For training, run this code.
+## Training
 ```python
 python train.py
 ```
-&emsp; This code trains the H+T model using transformed labels.
+&emsp; This trains the H+T model using transformed labels.
 
-### For evaluation, run this code.
+## Evaluation
 ```python
 python evaluation.py
 ```
-&emsp; This code evaluates the trained H+T model using the test set.
+&emsp; This evaluates the trained H+T model using the test set.

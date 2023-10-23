@@ -1,4 +1,4 @@
-# K-HATERS: A Hate Speech Detection Corpus in Korean with Target-Specific and Fine-Grained Ratings
+# K-HATERS: A Hate Speech Detection Corpus in Korean with Target-Specific Ratings
 
 This repository provides the code and dataset for our EMNLP'23 findings paper.
 

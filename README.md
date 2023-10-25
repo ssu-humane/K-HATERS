@@ -2,6 +2,7 @@
 
 This repository provides the code and dataset for our EMNLP'23 findings paper.
 
+<!--
 ### How to use dataset throught Hugging Face datasets library
 ```python
 from datasets import load_dataset
@@ -30,4 +31,4 @@ python train.py
 python evaluation.py
 ```
 &emsp; This evaluates the trained H+T model using the test set.
-
+-->

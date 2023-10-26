@@ -57,5 +57,5 @@ data = load_dataset('humane-lab/K-HATERS-Ratings')
 
 ## License
 
-This dataset is shared under by ![the CC-BY-SA 4.0 License](https://creativecommons.org/licenses/by-sa/4.0/deed.ko).
+This dataset is shared under [CC-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.en).
 

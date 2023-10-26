@@ -20,6 +20,8 @@ data = load_dataset('humane-lab/K-HATERS')
 - *target_rationale* is binary list that indicates whether target rationale exists for each token
 - *target_label* is multi-label target label.
 
+### Label distribution of transformed abusive language categories across the split data
+
 ## Training
 ```python
 python train.py

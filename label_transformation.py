@@ -3,10 +3,10 @@ def labelTransformation(dataset):
     t_dataset = []
     
     for data in dataset:
-        data = list(data.values()) # [Token id, Attention, Gender , Age, Disability, Job, Race, Religion, Politics, Individuals, Other, Insult, Swear word, Threat, Obscenty, target_Attention, Target labels]
-        attention = data[1]
-        GRP = data[2:9]
-        ratings = data[2:15]
+        data = list(data.values()) # [Text, Gender, Age, Disability, Job, Race, Religion, Politics, Individuals, Other, Insult, Swear word, Threat, Obscenty, Target labels, Offensiveness rationale, Target rationale]
+        attention = data[15]
+        GRP = data[1:8]
+        ratings = data[1:14]
 
         if sum(ratings)==0:
             t_label = 'normal'

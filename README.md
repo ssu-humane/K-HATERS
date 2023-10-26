@@ -2,6 +2,10 @@
 
 This repository introduces K-HATERS, the largest hate speech detection corpus in Korean, shared along with our EMNLP'23 findings paper.
 
+## Dataset distribution
+![label_distribution](https://github.com/ssu-humane/K-HATERS/assets/76468616/d08aa6df-923c-4fcf-88ae-c322d39acbed)<br>
+- We split the dataset of 192,158 samples into 172,158/10,000/10,000 for training, validation, and test purposes, ensuring the transformed label distribution is maintained.
+
 ## How to use the dataset
 The dataset is available through the HuggingFace Hub. 
 
@@ -12,27 +16,20 @@ data = load_dataset('humane-lab/K-HATERS')
 ```
 ```python
 >>> data['train'][0]
-{'comment': '예시 커멘트', 'label': '2_hate', 'target_label': ['political'], 'offensiveness_rationale': [(start1, end1),(start2, end2)], 'target_rationale': [(start1,end1)]}
+{'text': '예시 커멘트', 'label': '2_hate', 'target_label': ['political'], 'offensiveness_rationale': [(start1, end1),(start2, end2)], 'target_rationale': [(start1,end1)]}
 ```
 
-- *token_ids* is tokenized comment by KcBERT tokenizer include special token.
-- *rationale* is binary list that indicates whether offensiveness rationale exists for each token
-- *label* is transformed label.
-  - *normal, offensive, 1_hate, 2_hate*
-- *target_rationale* is binary list that indicates whether target rationale exists for each token
-- *target_label* is multi-label target label.
-  - *Gender, Age, Race, Religion, Politics, Job, Disability, Individuals, Others*
+- *text*: news comments
+- *label*: 4-class abusive language categories (L2_hate, L1_hate, Offensive, Normal))
+- *target*: multi-label target categories (Gender, Age, Race, Religion, Politics, Job, Disability, Individuals, Others)
+- *offensivenes_rationale*: annotators' rationales for the strength of ratings
+- *target_rationale*: annotators' rationales for the target of offensiveness
 
-## Label description
-- *2_hate (L2 hate)* : Comments with 2 as highest rating and labeled spans for the offensiveness rationale.
-- *1_hate (L1 hate)* : Comments with 1 as highest rating toward protected group. Additionally, offensive comments without a specified rationale for offensiveness.
-- *normal* : Comments with a value of 0 for all ratings. 
-- *offensive* : Comments with a rating greater than 0 but not toward a protected group (gender, politics, etc.).
-
-  
-### Label distribution of transformed abusive language categories across the split data
-![label_distribution](https://github.com/ssu-humane/K-HATERS/assets/76468616/d08aa6df-923c-4fcf-88ae-c322d39acbed)<br>
-- We split the dataset of 192,158 samples into 172,158/10,000/10,000 for training, validation, and test purposes, ensuring the transformed label distribution is maintained.
+## Label descriptions
+- *L2_hate*: Comments with explicit forms of hate expressions toward one of the groups of protected attributes (e.g., gender, age, race, ...)
+- *L1_hate*: Comments with more implicit forms of hate expressions
+- *Offensive*: Comments that express offensiveness but not toward a protected attribute group
+- *Normal*: Comments with a value of 0 for all ratings 
 
 ## Code
 ### Training

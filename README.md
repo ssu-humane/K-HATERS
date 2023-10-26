@@ -45,6 +45,16 @@ from datasets import load_dataset
 data = load_dataset('humane-lab/K-HATERS-Ratings')
 ```
 
+## Citation
+```bibtex
+@article{park2023haters,
+  title={K-HATERS: A Hate Speech Detection Corpus in Korean with Target-Specific Ratings},
+  author={Park, Chaewon and Kim, Suhwan and Park, Kyubyong and Park, Kunwoo},
+  journal={Findings of the EMNLP},
+  year={2023}
+}
+```
+
 ## License
 
 This dataset is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.

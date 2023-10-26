@@ -2,7 +2,7 @@
 
 This repository provides the code and dataset for our EMNLP'23 findings paper.
 
-<!--
+
 ### How to use dataset throught Hugging Face datasets library
 ```python
 from datasets import load_dataset
@@ -19,7 +19,7 @@ data = load_dataset('humane-lab/K-HATERS')
 - *label* is transformed label.
 - *target_rationale* is binary list that indicates whether target rationale exists for each token
 - *target_label* is multi-label target label.
-
+<!--
 ## Training
 ```python
 python train.py

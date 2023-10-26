@@ -1,4 +1,4 @@
-# In this code, 'dataset' should be rating dataset
+# In this code, 'dataset' should be ratings(K-HATERS-Ratings) dataset
 def labelTransformation(dataset):
     t_dataset = []
     

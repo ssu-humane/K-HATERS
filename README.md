@@ -20,7 +20,7 @@ We provide the split data of 172,158/10,000/10,000 for training, validation, and
   + *L1_hate*: Comments with more implicit forms of hate expressions
   + *Offensive*: Comments that express offensiveness but not toward a protected attribute group
   + *Normal*: The rest comments
-- Multi-label target categories (```target_label```): target of offensiveness, if any
+- Multi-label target categories (```target_label```): list of offensiveness targets. A comment can have zero or multiple targets.
   + List of target categories: gender, age, race, religion, politics, job, disability, individuals, and others.
 - Annotators' rationales for the strength of ratings (```offensiveness_rationale```): lists providing annotators' rationales for the strength of ratings. The list includes the start and end indices of highlight spans.
 - Annotators' rationales for the target of offensiveness (```target_rationale```)

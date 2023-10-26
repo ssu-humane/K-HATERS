@@ -44,3 +44,8 @@ from datasets import load_dataset
 
 data = load_dataset('humane-lab/K-HATERS-Ratings')
 ```
+
+## License
+
+This dataset is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+

@@ -12,7 +12,7 @@ data = load_dataset('humane-lab/K-HATERS')
 ```
 ```python
 >>> data['train'][0]
-{'comment': '예시 커멘트', 'label': '2_hate', 'target_label': ['political']}
+{'comment': '예시 커멘트', 'label': '2_hate', 'target_label': ['political'], 'offensiveness_rationale': [(start1, end1),(start2, end2)], 'target_rationale': [(start1,end1)]}
 ```
 
 - *token_ids* is tokenized comment by KcBERT tokenizer include special token.

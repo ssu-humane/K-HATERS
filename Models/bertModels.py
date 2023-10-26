@@ -1,10 +1,7 @@
 from transformers.models.bert.modeling_bert import *
 from torch import nn
 from .utils import *
-from transformers import AutoModel, AutoConfig, XLMRobertaModel,AutoModelForMaskedLM,RobertaModel
-from sklearn.preprocessing import MultiLabelBinarizer
-import pickle
-import json
+from transformers import AutoModel
 
 class SC_weighted_BERT(BertPreTrainedModel):
     def __init__(self, config,params):
@@ -13,15 +10,11 @@ class SC_weighted_BERT(BertPreTrainedModel):
         self.target_num_labels = params['target_num_classes']
         self.alpha = params['hate_alpha']
         self.beta = params['target_beta']
-        self.num_sv_heads=params['num_supervised_heads']
-        self.sv_layer = params['supervised_layer_pos']
-        self.train_target = params['train_target']
         self.model_path = params['path_files']
         self.bert = BertModel(config)
         self.dropout = nn.Dropout(config.hidden_dropout_prob)
         self.classifier = nn.Linear(config.hidden_size, config.num_labels)
         self.classifier_target = nn.Linear(config.hidden_size, params['target_num_classes'])
-        self.softmax=nn.Softmax(config.num_labels)
         self.init_weights() 
  
     def forward(self,
@@ -53,7 +46,6 @@ class SC_weighted_BERT(BertPreTrainedModel):
         logits_target = self.classifier_target(pooled_output) # target classification
         outputs = (logits, logits_target) + outputs[2:]
             
-        n = 2 
         if labels is not None:
             label_loss = 0
             loss_funct = CrossEntropyLoss()

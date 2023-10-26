@@ -2,7 +2,14 @@
 
 This repository introduces K-HATERS, the largest hate speech detection corpus in Korean to date, shared along with our EMNLP'23 findings paper.
 
-## Dataset distribution
+## Data sources
+
+- We collected 191,633 comments from 52,590 news articles that were published through Naver News over the period of July and August 2021.
+- We included 8,367 comments from the labeled set of an available [corpus](https://github.com/kocohub/korean-hate-speech).
+
+All comments were annotated through CashMission, a crowdsourcing service run by SELECTSTAR.
+
+## Data distribution
 
 We provide the split data of 172,158/10,000/10,000 for training, validation, and test purposes, ensuring the label distribution is maintained.
 

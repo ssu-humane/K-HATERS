@@ -33,15 +33,13 @@ data = load_dataset('humane-lab/K-HATERS')
 - *offensivenes_rationale*: lists providing annotators' rationales for the strength of ratings. The list includes the start and end indices of highlight spans.
 - *target_rationale*: annotators' rationales for the target of offensiveness
 
-## Code
-### Training
-```python
-python train.py
-```
-&emsp; This trains the H+T model using transformed labels.
+## Note
+The 4-class abusive language categories were transformed according to the proposed labeling scheme in the paper.
+We also provide the original version of the dataset with thirteen rating variables on a 3-point Likert scale, each indicating the offensiveness strength toward a target.
+Please refer to the details of the labeling scheme.
 
-### Evaluation
 ```python
-python evaluation.py
+from datasets import load_dataset
+
+data = load_dataset('humane-lab/K-HATERS-Ratings')
 ```
-&emsp; This evaluates the trained H+T model using the test set.

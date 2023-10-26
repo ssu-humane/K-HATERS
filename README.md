@@ -14,7 +14,7 @@ We provide the split data of 172,158/10,000/10,000 for training, validation, and
 - *Offensive*: Comments that express offensiveness but not toward a protected attribute group
 - *Normal*: Comments with a value of 0 for all ratings 
 
-## How to use the dataset
+## How to use
 The dataset is available through the HuggingFace Hub. 
 
 ```python

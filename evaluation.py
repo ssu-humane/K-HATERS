@@ -1,33 +1,23 @@
 import transformers
-import torch
 from transformers import *
-import glob 
-import random
+import torch
+import torch.backends.cudnn as cudnn
+import numpy as np
 import pandas as pd
+from TensorDataset.dataLoader import combine_features
+from Models.bertModels import *
 from Models.utils import *
 from sklearn.metrics import accuracy_score,f1_score,roc_auc_score,recall_score,precision_score, precision_recall_curve, auc, multilabel_confusion_matrix
-from tqdm import tqdm
-from TensorDataset.datsetSplitter import createDatasetSplit
-from TensorDataset.dataLoader import combine_features
-# from Preprocess.dataCollect import collect_data
-import matplotlib.pyplot as plt
-import time
-import os
-# from sklearn.utils import class_weight
-import json
-from Models.bertModels import *
-# from Models.otherModels import *
-import sys
-from waiting import wait
 from sklearn.preprocessing import LabelEncoder
-import numpy as np
-import argparse
-import ast
 from fairlearn.metrics import false_positive_rate, true_positive_rate, MetricFrame
-import torch.backends.cudnn as cudnn
+from tqdm import tqdm
+import time
+import random
+import os
+import json
+import argparse
 import pickle
 from collections import Counter
-from torch import nn
 from datasets import load_dataset
 
 def seed_fix(seed):
@@ -507,6 +497,10 @@ def measurement(params,comp,suff,which_files='test',model=None,test_dataloader=N
         with open("faithfulness/comp_prob.pickle",'wb') as f:
             pickle.dump(logits_all_final,f)
     else:
+        if os.path.exists("./faithfulness"):
+            pass
+        else:
+            os.mkdir("faithfulness")
         with open("faithfulness/before_comp_prob.pickle",'wb') as f:
             pickle.dump(logits_all_final,f)
     if (comp or suff)==False:
@@ -521,11 +515,8 @@ def measurement(params,comp,suff,which_files='test',model=None,test_dataloader=N
 def train_model(params,device):
     embeddings=None
 
-#     data = load_dataset("humane-lab/K-HATERS")
-#     test = data['test']
-    
-    with open("Data/Total_data_4/test_data.pickle", 'rb') as f:
-        test = pickle.load(f)
+    data = load_dataset("humane-lab/K-HATERS")
+    test = data['test']
         
     target_encoder = LabelEncoder()
     target_encoder.fit(params['target_class_name'])
@@ -605,7 +596,6 @@ if __name__=='__main__':
     else:
         device = torch.device("cpu")
 
-    params['data_file']='Data/data_processed_4.pickle'
     params['class_names']='Data/classes_four.npy' 
     params['head_num']=0
     params['inference']=False

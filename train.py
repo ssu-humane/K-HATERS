@@ -1,27 +1,20 @@
 from tqdm.auto import tqdm
 import transformers 
+from transformers import *
 import torch
 from torch import nn
-from transformers import *
-import random
 import pandas as pd
-from Models.utils import masked_cross_entropy,fix_the_random,format_time,save_normal_model,save_bert_model,focal_binary_cross_entropy, focal_multi_class
-from TensorDataset.datsetSplitter import createDatasetSplit
+import numpy as np
+from Models.utils import * 
+from Models.bertModels import *
 from TensorDataset.dataLoader import combine_features
 from sklearn.metrics import accuracy_score,f1_score,roc_auc_score,recall_score,precision_score
-import matplotlib.pyplot as plt
 import os
 import json
-from Models.bertModels import *
-import sys
 import time
-from waiting import wait
+import random
 from sklearn.preprocessing import LabelEncoder
-import numpy as np
-import argparse
-import ast
 import torch.backends.cudnn as cudnn
-import warnings
 from datasets import load_dataset
 
 
@@ -226,12 +219,11 @@ def interval_eval(params,which_files='test',model=None,test_dataloader=None,devi
     
 def train_model(params,device):
     embeddings=None
-#     data = load_dataset("humane-lab/K-HATERS")
+    data = load_dataset("humane-lab/K-HATERS")
 
-#     train = data['train']
-#     val = data['val']
-#     test = data['test']
-    train, val, test=createDatasetSplit(params)
+    train = data['train']
+    val = data['validation']
+    test = data['test']
     
     train_dataloader=combine_features(train,params,is_train=True)
     validation_dataloader=combine_features(val,params,is_train=False)
@@ -327,8 +319,11 @@ def train_model(params,device):
                     val_losses.append(val_loss)
                     cnt = 0 
                     save_path = "./Saved/"+params['path_files_name']+"_"+params['model_to_use'].replace('_','')+"_"+str(params['train_target'])+"_"+str(params['train_target_att'])+"_"+str(params['train_att'])+"_"+str(params['num_classes'])+".pt"
+                    if os.path.exists("./Saved"):
+                        pass
+                    else:
+                        os.mkdir("Saved")
                     torch.save(model.state_dict(), save_path)
-
         avg_train_loss = total_loss / len(train_dataloader)
         print('avg_train_loss: ',avg_train_loss)
 
@@ -365,7 +360,6 @@ if __name__=='__main__':
         
 
     params['inference']=False
-    params['data_file']='Data/data_processed_4.pickle'
     params['class_names']='Data/classes_four.npy'
     params['num_supervised_heads']=params['num_supervised_heads']*2
     params['train'] = True

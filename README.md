@@ -12,7 +12,7 @@ We provide the split data of 172,158/10,000/10,000 for training, validation, and
 - *L2_hate*: Comments with explicit forms of hate expressions toward one of the groups of protected attributes (e.g., gender, age, race, ...)
 - *L1_hate*: Comments with more implicit forms of hate expressions
 - *Offensive*: Comments that express offensiveness but not toward a protected attribute group
-- *Normal*: Comments with a value of 0 for all ratings 
+- *Normal*: The rest comments
 
 ## How to use it
 The dataset is available through the HuggingFace Hub. 

@@ -1,6 +1,6 @@
 # K-HATERS: A Hate Speech Detection Corpus in Korean with Target-Specific Ratings
 
-This repository introduces K-HATERS, the largest hate speech detection corpus in Korean, shared with our EMNLP'23 findings paper.
+This repository introduces K-HATERS, the largest hate speech detection corpus in Korean, shared along with our EMNLP'23 findings paper.
 
 ## How to use the dataset
 The dataset is available through the HuggingFace Hub. 

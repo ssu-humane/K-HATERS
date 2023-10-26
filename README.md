@@ -32,9 +32,9 @@ The dataset is available through the HuggingFace Hub.
 from datasets import load_dataset
 
 data = load_dataset('humane-lab/K-HATERS')
-train_data = data['train']
-valid_data = data['valid']
-test_Data =  data['test']
+train = data['train']
+valid = data['valid']
+test =  data['test']
 ```
 
 ## Where are the ratings?

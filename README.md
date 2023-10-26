@@ -22,9 +22,10 @@ from datasets import load_dataset
 
 data = load_dataset('humane-lab/K-HATERS')
 ```
+<!--{'text': '예시 커멘트', 'label': '2_hate', 'target_label': ['political'], 'offensiveness_rationale': [(start1, end1),(start2, end2)], 'target_rationale': [(start1,end1)]}-->
 ```python
->>> data['train'][0]
-{'text': '예시 커멘트', 'label': '2_hate', 'target_label': ['political'], 'offensiveness_rationale': [(start1, end1),(start2, end2)], 'target_rationale': [(start1,end1)]}
+>>> data['train'][42]
+{'text': '군대도 안간 놈 이 주둥아리 는 씽씽하네..보수 놈 들..군대는 안가고 애국이냐..#@이름#,#@이름#,', 'label': '1_hate', 'target_label': ['political'], 'offensiveness_rationale': [[7, 8], [11, 15], [27, 28]], 'target_rationale': [[24, 26], [46, 51], [52, 57]]}
 ```
 
 - *text*: news comments

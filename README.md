@@ -52,9 +52,12 @@ data = load_dataset('humane-lab/K-HATERS-Ratings')
 ## Acknowledgements
 
 The dataset construction was supported by DATUMO (SELECTSTAR) through the "2022 AI Dataset Supporting Business" program.
-This dataset is shared under [CC-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.en).
 
-## Citation
+## License and Further Usages
+
+This dataset is shared under [CC-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.en).
+According to this license, you are free to use the dataset as long as you provide appropriate attribution (e.g., citing our paper) and share any derivative works under the same license.
+
 ```bibtex
 @article{park2023haters,
   title={K-HATERS: A Hate Speech Detection Corpus in Korean with Target-Specific Ratings},

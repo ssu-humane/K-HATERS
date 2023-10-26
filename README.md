@@ -28,7 +28,7 @@ data = load_dataset('humane-lab/K-HATERS')
 - **2_hate (Level_2 hate)** : Comments with 2 as highest rating and labeled spans for the offensiveness rationale.
 
 ### Label distribution of transformed abusive language categories across the split data
-
+We split the dataset of 192,158 samples into 172,158/10,000/10,000 for training, validation, and test purposes, ensuring the transformed label distribution is maintained.
 ![label_distribution](https://github.com/ssu-humane/K-HATERS/assets/76468616/d08aa6df-923c-4fcf-88ae-c322d39acbed)
 
 ## Code

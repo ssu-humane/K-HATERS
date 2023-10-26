@@ -1,7 +1,7 @@
 # K-HATERS: A Hate Speech Detection Corpus in Korean with Target-Specific Ratings
 
 This repository provides the code and dataset for our EMNLP'23 findings paper.
-<!--
+
 ## Data (K-HATERS)
 ### How to use dataset throught Hugging Face datasets library
 ```python
@@ -17,20 +17,19 @@ data = load_dataset('humane-lab/K-HATERS')
 - *token_ids* is tokenized comment by KcBERT tokenizer include special token.
 - *rationale* is binary list that indicates whether offensiveness rationale exists for each token
 - *label* is transformed label.
+  - *normal* : Comments with a value of 0 for all ratings.
+  - *offensive* : Comments with a rating greater than 0 but not toward a protected group (gender, politics, etc.).
+  - *1_hate (L1 hate)* : Comments with 1 as highest rating toward protected group. Additionally, offensive comments without a specified rationale for offensiveness.
+  - *2_hate (L2 hate)* : Comments with 2 as highest rating and labeled spans for the offensiveness rationale.
 - *target_rationale* is binary list that indicates whether target rationale exists for each token
 - *target_label* is multi-label target label.
+    - *Gender, Age, Race, Religion, Politics, Job, Disability, Individuals, Others*
 
-### Explanation of transformed label
-
-- **normal** : Comments with a value of 0 for all ratings.
-- **offensive** : Comments with a rating greater than 0 but not toward a protected group (gender, politics, etc.). like toxic comment toward individual.
-- **1_hate (Level_1 hate)** : Comments with 1 as highest rating toward protected group. Additionally, offensive comments without a specified rationale for offensiveness.
-- **2_hate (Level_2 hate)** : Comments with 2 as highest rating and labeled spans for the offensiveness rationale.
 
 ### Label distribution of transformed abusive language categories across the split data
 ![label_distribution](https://github.com/ssu-humane/K-HATERS/assets/76468616/d08aa6df-923c-4fcf-88ae-c322d39acbed)<br>
 We split the dataset of 192,158 samples into 172,158/10,000/10,000 for training, validation, and test purposes, ensuring the transformed label distribution is maintained.
-
+<br>
 ## Code
 ### Training
 ```python
@@ -43,4 +42,3 @@ python train.py
 python evaluation.py
 ```
 &emsp; This evaluates the trained H+T model using the test set.
--->

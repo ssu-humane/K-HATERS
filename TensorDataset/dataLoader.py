@@ -1,11 +1,9 @@
 import torch
-import transformers
 from keras_preprocessing.sequence import pad_sequences
 from torch.utils.data import TensorDataset, DataLoader, RandomSampler, SequentialSampler
 import numpy as np
 from sklearn.preprocessing import LabelEncoder
 from tqdm.auto import tqdm
-import ast
 
 def custom_att_masks(input_ids, path_files_name):
     attention_masks = []
@@ -15,16 +13,17 @@ def custom_att_masks(input_ids, path_files_name):
     return attention_masks
 
 def combine_features(tuple_data,params,is_train=False):
-    input_ids = [ele[0] for ele in tuple_data]
-    att_vals = [ele[1] for ele in tuple_data]
-    labels = [ele [2] for ele in tuple_data]
-    target_att_vals = [ele [3] for ele in tuple_data]
-    target_labels = [ele [4] for ele in tuple_data]
-    # input_ids = [ast.literal_eval(ele.input_ids) for ele in tuple_data.iloc()]
-    # att_vals = [ast.literal_eval(ele.rationale) for ele in tuple_data.iloc()]
-    # labels = [ele.label for ele in tuple_data.iloc()]
-    # target_att_vals = [ast.literal_eval(ele.target_rationale) for ele in tuple_data.iloc()]
-    # target_labels = [ast.literal_eval(ele.target_label) for ele in tuple_data.iloc()]
+    input_ids = []
+    att_vals = []
+    labels = []
+    target_att_vals = []
+    target_labels = []
+    for ele in tuple_data:
+        input_ids.append(ele['token_ids'])
+        att_vals.append(ele['rationale'])
+        labels.append(ele['label'])
+        target_att_vals.append(ele['target_rationale'])
+        target_labels.append(ele['target_label'])
 
 
     encoder = LabelEncoder()

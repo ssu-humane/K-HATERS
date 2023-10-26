@@ -1,7 +1,7 @@
 # K-HATERS: A Hate Speech Detection Corpus in Korean with Target-Specific Ratings
 
 This repository provides the code and dataset for our EMNLP'23 findings paper.
-
+<!--
 ## Data (K-HATERS)
 ### How to use dataset throught Hugging Face datasets library
 ```python
@@ -43,4 +43,4 @@ python train.py
 python evaluation.py
 ```
 &emsp; This evaluates the trained H+T model using the test set.
-
+-->

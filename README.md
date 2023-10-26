@@ -49,6 +49,11 @@ from datasets import load_dataset
 data = load_dataset('humane-lab/K-HATERS-Ratings')
 ```
 
+## Acknowledgements
+
+The dataset construction was supported by DATUMO (SELECTSTAR) through the "2022 AI Dataset Supporting Business" program.
+This dataset is shared under [CC-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.en).
+
 ## Citation
 ```bibtex
 @article{park2023haters,
@@ -59,7 +64,5 @@ data = load_dataset('humane-lab/K-HATERS-Ratings')
 }
 ```
 
-## License
 
-This dataset is shared under [CC-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.en).
 

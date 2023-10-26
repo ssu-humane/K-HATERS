@@ -50,7 +50,7 @@ data = load_dataset('humane-lab/K-HATERS-Ratings')
 @article{park2023haters,
   title={K-HATERS: A Hate Speech Detection Corpus in Korean with Target-Specific Ratings},
   author={Park, Chaewon and Kim, Suhwan and Park, Kyubyong and Park, Kunwoo},
-  journal={Findings of the EMNLP},
+  journal={Findings of the EMNLP 2023},
   year={2023}
 }
 ```

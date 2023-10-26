@@ -22,7 +22,6 @@ from datasets import load_dataset
 
 data = load_dataset('humane-lab/K-HATERS')
 ```
-<!--{'text': '예시 커멘트', 'label': '2_hate', 'target_label': ['political'], 'offensiveness_rationale': [(start1, end1),(start2, end2)], 'target_rationale': [(start1,end1)]}-->
 ```python
 >>> data['train'][42]
 {'text': '군대도 안간 놈 이 주둥아리 는 씽씽하네..보수 놈 들..군대는 안가고 애국이냐..#@이름#,#@이름#,', 'label': '1_hate', 'target_label': ['political'], 'offensiveness_rationale': [[7, 8], [11, 15], [27, 28]], 'target_rationale': [[24, 26], [46, 51], [52, 57]]}
@@ -34,11 +33,12 @@ data = load_dataset('humane-lab/K-HATERS')
 - *offensivenes_rationale*: lists providing annotators' rationales for the strength of ratings. The list includes the start and end indices of highlight spans.
 - *target_rationale*: annotators' rationales for the target of offensiveness
 
-## Note
-The 4-class abusive language categories were transformed according to the proposed labeling scheme in the paper.
-We also provide the original version of the dataset with thirteen rating variables on a 3-point Likert scale, each indicating the offensiveness strength toward a target.
+## Where are the ratings?
+The original dataset was labeled by annotators for thirteen rating variables on a 3-point Likert scale, each indicating the offensiveness strength toward a target.
+In this paper, we proposed a label transformation scheme leading to 4-class abusive language categories and multi-label target labels for efficient modeling.
 Please refer to the details of the labeling scheme in our paper.
 
+If you want to use the dataset with rating variables, please refer to the following code.
 ```python
 from datasets import load_dataset
 

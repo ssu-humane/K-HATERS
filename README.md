@@ -4,7 +4,7 @@ This repository introduces K-HATERS, the largest hate speech detection corpus in
 
 ## Data sources
 
-- We collected 191,633 comments from 52,590 news articles that were published through Naver News over the period of July and August 2021.
+- We collected 191,633 comments from 52,590 news articles that were published through Naver News over two months in 2021.
 - We included 8,367 comments from the labeled set of an available [corpus](https://github.com/kocohub/korean-hate-speech).
 
 All comments were annotated through CashMission, a crowdsourcing service run by SELECTSTAR.

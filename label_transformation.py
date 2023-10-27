@@ -4,7 +4,7 @@ def labelTransformation(dataset):
     
     for data in dataset:
         data = list(data.values()) # [Text, Gender, Age, Disability, Job, Race, Religion, Politics, Individuals, Other, Insult, Swear word, Threat, Obscenty, Target labels, Offensiveness rationale, Target rationale]
-        attention = data[15]
+        rationale = data[15]
         GRP = data[1:8]
         ratings = data[1:14]
 
@@ -12,7 +12,7 @@ def labelTransformation(dataset):
             t_label = 'normal'
         elif sum(GRP)==0:
             t_label = 'offensive'
-        elif sum(attention)!=0 and max(ratings)>1:
+        elif sum(rationale)!=0 and max(ratings)>1:
             t_label = '2_hate'
         else:
             t_label = '1_hate'

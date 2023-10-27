@@ -46,7 +46,7 @@ test =  data['test']
 ## Where are the ratings?
 The original dataset was labeled by annotators for thirteen rating variables on a 3-point Likert scale, each indicating the offensiveness strength toward a target.
 In this paper, we proposed a label transformation scheme leading to 4-class abusive language categories and multi-label target labels for efficient modeling.
-The above code is to access the transformed dataset. Please refer to the details of the labeling scheme in our paper.
+The above code is to access the transformed dataset. Please refer to the details of the transformation method in our paper.
 
 If you want to use the dataset with rating variables, please refer to the following code.
 ```python

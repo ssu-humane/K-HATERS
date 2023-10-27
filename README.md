@@ -55,6 +55,10 @@ from datasets import load_dataset
 data = load_dataset('humane-lab/K-HATERS-Ratings')
 ```
 
+The rating distribution is as follows:
+![image](https://github.com/ssu-humane/K-HATERS/assets/80903024/b081c2e9-c81d-424b-b4c2-e6e57d4c1fb8)
+
+
 ## Acknowledgements
 
 The dataset construction was supported by DATUMO (SELECTSTAR) through the "2022 AI Dataset Supporting Business" program.

@@ -18,7 +18,7 @@ We provide the split data of 172,158/10,000/10,000 for training, validation, and
 
 ```python
 >>> data['train'][42]
-{'text': '군대도 안간 놈 이 주둥아리 는 씽씽하네..보수 놈 들..군대는 안가고 애국이냐..#@이름#,#@이름#,', 'label': '1_hate', 'target_label': ['political'], 'offensiveness_rationale': [[7, 8], [11, 15], [27, 28]], 'target_rationale': [[24, 26], [46, 51], [52, 57]]}
+{'text': '군대도 안간 놈 이 주둥아리 는 씽씽하네..보수 놈 들..군대는 안가고 애국이냐..#@이름#,#@이름#,', 'label': 'L1_hate', 'target_label': ['political'], 'offensiveness_rationale': [[7, 8], [11, 15], [27, 28]], 'target_rationale': [[24, 26], [46, 51], [52, 57]]}
 ```
 
 - Abusive language categories (```label```)

@@ -39,7 +39,7 @@ from datasets import load_dataset
 
 data = load_dataset('humane-lab/K-HATERS')
 train = data['train']
-valid = data['valid']
+valid = data['validation']
 test =  data['test']
 ```
 

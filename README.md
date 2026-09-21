@@ -2,12 +2,11 @@
 
 This repository introduces K-HATERS, the largest hate speech detection corpus in Korean, shared with our EMNLP'23 findings paper. [[link]](https://arxiv.org/abs/2310.15439)
 
->K-HATERS has been updated to K-HATERS 2.0!
->
->K-HATERS 2.0 adds fine-grained target labels to the corpus, which is shared with our HCLT 2026 paper. While K-HATERS provides the target group of a hateful comment (e.g., Gender), it does not provide the target itself (e.g., Female, Male, LGBTQ). K-HATERS 2.0 adds a new field ```target``` that fills this gap.
->The following table shows the fine-grained targets in each target group.
+## K-HATERS has been updated to K-HATERS 2.0!
+K-HATERS 2.0 adds fine-grained target labels to the corpus. While K-HATERS provides the target category of a hateful comment (e.g., Gender), it does not provide the target itself (e.g., Female, Male, LGBTQ). K-HATERS 2.0 adds a new field ```target``` that fills this gap. The comments, labels, target categories, rationelas, and the data split remain the same as K-HATERS.
 
-| Target Group | Target |
+The following table shows the fine-grained targets in each target category.
+| Target category | Target |
 |---|---|
 | Political | Progressive, Conservative |
 | Region & Race | China, Japan, Korea, North Korea, USA, Afghanistan, Korean-Chinese, Black, White |
@@ -22,6 +21,7 @@ This repository introduces K-HATERS, the largest hate speech detection corpus in
 - We collected news comments published through the politics, society and world news sections in Naver News over two months in 2021.
 - All comments were annotated through CashMission, a crowdsourcing service run by SELECTSTAR. 
 - Labeling guidelines are available as a part of SELECTSTAR open datasets (in Korean). [[link]](https://open.selectstar.ai/ko/?page_id=5948)
+- Fine-grained targets, added in K-HATERS 2.0, were annotated by Gemini-2.5-Flash given the comment and its target category, and then manually reviewed and normalized. 
 
 ## Data distribution
 
@@ -33,7 +33,7 @@ We provide the split data of 172,158/10,000/10,000 for training, validation, and
 
 ```python
 >>> data['train'][42]
-{'text': '군대도 안간 놈 이 주둥아리 는 씽씽하네..보수 놈 들..군대는 안가고 애국이냐..#@이름#,#@이름#,', 'label': 'L1_hate', 'target_label': ['political'], 'offensiveness_rationale': [[7, 8], [11, 15], [27, 28]], 'target_rationale': [[24, 26], [46, 51], [52, 57]]}
+{"id": 42, "text": "군대도 안간 놈 이 주둥아리 는 씽씽하네..보수 놈 들..군대는 안가고 애국이냐..#@이름#,#@이름#,", "label": "L1_hate", "target_label": ["political"], "offensiveness_rationale": [[7, 8], [11, 15], [27, 28]], "target_rationale": [[24, 26], [46, 51], [52, 57]], "target": [{"category": "political", "fine": "conservative"}]}
 ```
 
 - Abusive language categories (```label```)
@@ -42,9 +42,12 @@ We provide the split data of 172,158/10,000/10,000 for training, validation, and
   + *Offensive*: Comments that express offensiveness but not toward a protected attribute group
   + *Normal*: The rest comments
 - Multi-label target categories (```target_label```): list of offensiveness targets. A comment can have zero or multiple targets.
-  + List of target categories: gender, age, race, religion, politics, job, disability, individuals, and others.
+  + List of target categories: gender, age, region & race, religion, politics, job, disability, individuals, and others.
 - Annotators' rationales for the strength of ratings (```offensiveness_rationale```): lists providing annotators' rationales for the strength of ratings. The list includes the start and end indices of highlight spans.
 - Annotators' rationales for the target of offensiveness (```target_rationale```)
+- Fine-grained targets (```target```, added in 2.0): list of the specific targets that the hate is directed at, with one entry per target category.
+  + ```category```: corresponds to ```target_label```.
+  + ```fine```: the fine-grained target within that category (e.g., *conservative* for *political*). It is *null* when the fine-grained target cannot be determined from the comment.
 
 ## How to use it
 The dataset is available through the HuggingFace Hub. 

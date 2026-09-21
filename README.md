@@ -2,6 +2,21 @@
 
 This repository introduces K-HATERS, the largest hate speech detection corpus in Korean, shared with our EMNLP'23 findings paper. [[link]](https://arxiv.org/abs/2310.15439)
 
+>K-HATERS has been updated to K-HATERS 2.0!
+>
+>K-HATERS 2.0 adds fine-grained target labels to the corpus, which is shared with our HCLT 2026 paper. While K-HATERS provides the target group of a hateful comment (e.g., Gender), it does not provide the target itself (e.g., Female, Male, LGBTQ). K-HATERS 2.0 adds a new field ```target``` that fills this gap.
+>The following table shows the fine-grained targets in each target group.
+
+| Target Group | Target |
+|---|---|
+| Political | Progressive, Conservative |
+| Region & Race | China, Japan, Korea, North Korea, USA, Afghanistan, Korean-Chinese, Black, White |
+| Job | Journalist, Public Official, Legal Professional, Politician, Athlete, Entertainer, Educator, Religious Worker, Healthcare Worker |
+| Gender | Female, Male, LGBTQ |
+| Age | Elderly, Young Adult, Minor, Middle-Aged |
+| Disabled | Mental Disability, Developmental Disability, Physical Disability |
+| Religion | Islam, Protestantism, Buddhism, Catholicism |
+
 ## Data collection and annotation
 
 - We collected news comments published through the politics, society and world news sections in Naver News over two months in 2021.
